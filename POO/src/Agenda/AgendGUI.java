@@ -10,7 +10,8 @@ public class AgendGUI{
     private JTextField telefono;
     private JButton agregarContactoButton;
     private JLabel LabelNombre;
-    private JTable table1;
+    private JTable listaContactos;
+    private JTable ListaContactos;
 
 
 }
