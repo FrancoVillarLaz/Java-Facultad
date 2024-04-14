@@ -1,4 +1,5 @@
 package Agenda;
+import javax.swing.*;
 import java.util.ArrayList;
 
 public class Agenda {
@@ -34,17 +35,29 @@ public class Agenda {
         }
         return borrado;
     }
-
-    public static void main(String[] args) {
-        Agenda agendaContactos=new Agenda();
-        agendaContactos.agregarContacto("Nico",1234);
-        agendaContactos.agregarContacto("Franco",2341);
-        agendaContactos.agregarContacto("Mati",4321);
-
-        agendaContactos.buscarContacto("nico");
+    public String listaCompleta(){
+        StringBuilder lista = new StringBuilder();
         for (Contactos contacto : agenda) {
-            System.out.println("La cantidad de contactos:"+contacto.getId() + ": "+ contacto.getNombre() + ": " + contacto.getTelefono());
-            System.out.println(agenda.indexOf(contacto));
+            int id = contacto.getId();
+            String nombre = contacto.getNombre();
+            int telefono = contacto.getTelefono();
+            
+            lista.append("\n id: ").append(id).append(" Nombre: ").append(nombre).append(" Telefono: ").append(telefono).append("\n");
         }
+        String listaCompleta = lista.toString();
+        return listaCompleta;
     }
+
+//    public static void main(String[] args) {
+//        Agenda agendaContactos=new Agenda();
+//        agendaContactos.agregarContacto("Nico",1234);
+//        agendaContactos.agregarContacto("Franco",2341);
+//        agendaContactos.agregarContacto("Mati",4321);
+//
+//        agendaContactos.buscarContacto("nico");
+//        for (Contactos contacto : agenda) {
+//            System.out.println("La cantidad de contactos:"+contacto.getId() + ": "+ contacto.getNombre() + ": " + contacto.getTelefono());
+//            System.out.println(agenda.indexOf(contacto));
+//        }
+//    }
 }

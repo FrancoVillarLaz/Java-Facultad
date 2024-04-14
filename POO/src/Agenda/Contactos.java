@@ -12,7 +12,8 @@ public class Contactos {
         this.id=cantidad;
         System.out.println(getId());
     }
-
+    public Contactos() {
+    }
     public String getNombre() {
         return nombre;
     }
