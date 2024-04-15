@@ -22,8 +22,10 @@ public class AgendaGUI extends JFrame {
     private JLabel nombreBusqueda;
     private JScrollPane listaContactos;
     private JLabel ContactosLabel;
-    private JTextField textField1;
-    private JTextField listaCompletaText;
+    private JTextField cantidadContactos;
+    private JTextPane listaCompletaText;
+    private JButton borrarButtom;
+    private JTextField borrarInput;
 
     Agenda agenda = new Agenda();
 
@@ -75,6 +77,19 @@ public class AgendaGUI extends JFrame {
                 super.focusGained(e);
                 String lista = agenda.listaCompleta();
                 listaCompletaText.setText(lista);
+                cantidadContactos.setText(agenda.cantidadContactos());
+            }
+        });
+        borrarButtom.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String borradoStr = borrarInput.getText();
+                boolean borrado = agenda.borrarContacto(borradoStr);
+                if (borrado == true) {
+                    JOptionPane.showMessageDialog(null, "El contacto ha sido borrado con exito", "Borrado", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(null, "El contacto no existe o no pudo ser borrado", "Error", JOptionPane.ERROR_MESSAGE);
+                }
             }
         });
     }
@@ -265,7 +280,70 @@ public class AgendaGUI extends JFrame {
         panel2.add(spacer11, gbc);
         final JPanel panel3 = new JPanel();
         panel3.setLayout(new GridBagLayout());
-        tabbedPane1.addTab("Lista de contactos", panel3);
+        panel3.setMinimumSize(new Dimension(209, 60));
+        panel3.setPreferredSize(new Dimension(500, 100));
+        tabbedPane1.addTab("Borrar", panel3);
+        borrarInput = new JTextField();
+        borrarInput.setColumns(30);
+        borrarInput.setText("");
+        gbc = new GridBagConstraints();
+        gbc.gridx = 2;
+        gbc.gridy = 0;
+        gbc.anchor = GridBagConstraints.WEST;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        panel3.add(borrarInput, gbc);
+        final JPanel spacer12 = new JPanel();
+        gbc = new GridBagConstraints();
+        gbc.gridx = 3;
+        gbc.gridy = 0;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        panel3.add(spacer12, gbc);
+        final JLabel label1 = new JLabel();
+        label1.setText("Ingrese nombre:");
+        gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.anchor = GridBagConstraints.WEST;
+        panel3.add(label1, gbc);
+        final JPanel spacer13 = new JPanel();
+        gbc = new GridBagConstraints();
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        panel3.add(spacer13, gbc);
+        borrarButtom = new JButton();
+        borrarButtom.setText("Borrar contacto");
+        gbc = new GridBagConstraints();
+        gbc.gridx = 2;
+        gbc.gridy = 2;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        panel3.add(borrarButtom, gbc);
+        final JPanel spacer14 = new JPanel();
+        gbc = new GridBagConstraints();
+        gbc.gridx = 2;
+        gbc.gridy = 1;
+        gbc.fill = GridBagConstraints.VERTICAL;
+        panel3.add(spacer14, gbc);
+        final JTextArea textArea1 = new JTextArea();
+        textArea1.setEditable(false);
+        textArea1.setFocusable(false);
+        textArea1.setOpaque(true);
+        textArea1.setPreferredSize(new Dimension(10, 30));
+        textArea1.setText("");
+        gbc = new GridBagConstraints();
+        gbc.gridx = 2;
+        gbc.gridy = 4;
+        gbc.fill = GridBagConstraints.BOTH;
+        panel3.add(textArea1, gbc);
+        final JPanel spacer15 = new JPanel();
+        gbc = new GridBagConstraints();
+        gbc.gridx = 2;
+        gbc.gridy = 3;
+        gbc.fill = GridBagConstraints.VERTICAL;
+        panel3.add(spacer15, gbc);
+        final JPanel panel4 = new JPanel();
+        panel4.setLayout(new GridBagLayout());
+        tabbedPane1.addTab("Lista de contactos", panel4);
         listaContactos = new JScrollPane();
         listaContactos.setPreferredSize(new Dimension(400, 100));
         gbc = new GridBagConstraints();
@@ -273,10 +351,8 @@ public class AgendaGUI extends JFrame {
         gbc.gridy = 2;
         gbc.gridwidth = 3;
         gbc.fill = GridBagConstraints.BOTH;
-        panel3.add(listaContactos, gbc);
-        listaCompletaText = new JTextField();
-        listaCompletaText.setEditable(false);
-        listaCompletaText.setPreferredSize(new Dimension(100, 100));
+        panel4.add(listaContactos, gbc);
+        listaCompletaText = new JTextPane();
         listaCompletaText.setText("");
         listaContactos.setViewportView(listaCompletaText);
         ContactosLabel = new JLabel();
@@ -285,36 +361,36 @@ public class AgendaGUI extends JFrame {
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.anchor = GridBagConstraints.WEST;
-        panel3.add(ContactosLabel, gbc);
-        final JPanel spacer12 = new JPanel();
+        panel4.add(ContactosLabel, gbc);
+        final JPanel spacer16 = new JPanel();
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 1;
         gbc.fill = GridBagConstraints.VERTICAL;
-        panel3.add(spacer12, gbc);
-        textField1 = new JTextField();
-        textField1.setFocusable(false);
-        textField1.setMinimumSize(new Dimension(10, 5));
-        textField1.setOpaque(false);
-        textField1.setPreferredSize(new Dimension(30, 30));
+        panel4.add(spacer16, gbc);
+        cantidadContactos = new JTextField();
+        cantidadContactos.setFocusable(false);
+        cantidadContactos.setMinimumSize(new Dimension(10, 5));
+        cantidadContactos.setOpaque(false);
+        cantidadContactos.setPreferredSize(new Dimension(30, 30));
         gbc = new GridBagConstraints();
         gbc.gridx = 2;
         gbc.gridy = 0;
         gbc.anchor = GridBagConstraints.WEST;
-        panel3.add(textField1, gbc);
-        final JPanel spacer13 = new JPanel();
+        panel4.add(cantidadContactos, gbc);
+        final JPanel spacer17 = new JPanel();
         gbc = new GridBagConstraints();
         gbc.gridx = 1;
         gbc.gridy = 0;
         gbc.fill = GridBagConstraints.HORIZONTAL;
-        panel3.add(spacer13, gbc);
-        final JPanel panel4 = new JPanel();
-        panel4.setLayout(new GridBagLayout());
+        panel4.add(spacer17, gbc);
+        final JPanel panel5 = new JPanel();
+        panel5.setLayout(new GridBagLayout());
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 2;
         gbc.fill = GridBagConstraints.BOTH;
-        panel.add(panel4, gbc);
+        panel.add(panel5, gbc);
     }
 
     /**
@@ -345,5 +421,13 @@ public class AgendaGUI extends JFrame {
     public JComponent $$$getRootComponent$$$() {
         return panel;
     }
+
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
+    }
+
+    /**
+     * @noinspection ALL
+     */
 
 }

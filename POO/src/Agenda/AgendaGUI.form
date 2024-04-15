@@ -217,6 +217,87 @@
               </vspacer>
             </children>
           </grid>
+          <grid id="34abb" layout-manager="GridBagLayout">
+            <constraints>
+              <tabbedpane title="Borrar"/>
+            </constraints>
+            <properties>
+              <minimumSize width="209" height="60"/>
+              <preferredSize width="500" height="100"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="85db" class="javax.swing.JTextField" binding="borrarInput">
+                <constraints>
+                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <columns value="30"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <hspacer id="e46e4">
+                <constraints>
+                  <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+              </hspacer>
+              <component id="14699" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <text value="Ingrese nombre:"/>
+                </properties>
+              </component>
+              <hspacer id="cfdcb">
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+              </hspacer>
+              <component id="6bc17" class="javax.swing.JButton" binding="borrarButtom">
+                <constraints>
+                  <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <text value="Borrar contacto"/>
+                </properties>
+              </component>
+              <vspacer id="1f376">
+                <constraints>
+                  <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+              </vspacer>
+              <component id="9df8d" class="javax.swing.JTextArea">
+                <constraints>
+                  <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="50"/>
+                  </grid>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <editable value="false"/>
+                  <focusable value="false"/>
+                  <opaque value="true"/>
+                  <preferredSize width="10" height="30"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <vspacer id="4b31">
+                <constraints>
+                  <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+              </vspacer>
+            </children>
+          </grid>
           <grid id="3911b" layout-manager="GridBagLayout">
             <constraints>
               <tabbedpane title="Lista de contactos"/>
@@ -234,11 +315,9 @@
                 </properties>
                 <border type="none"/>
                 <children>
-                  <component id="fba6" class="javax.swing.JTextField" binding="listaCompletaText">
+                  <component id="a4f7e" class="javax.swing.JTextPane" binding="listaCompletaText">
                     <constraints/>
                     <properties>
-                      <editable value="false"/>
-                      <preferredSize width="100" height="100"/>
                       <text value=""/>
                     </properties>
                   </component>
@@ -259,7 +338,7 @@
                   <gridbag weightx="0.0" weighty="0.0"/>
                 </constraints>
               </vspacer>
-              <component id="fa57b" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+              <component id="fa57b" class="javax.swing.JTextField" binding="cantidadContactos">
                 <constraints>
                   <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>

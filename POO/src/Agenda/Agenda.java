@@ -29,11 +29,15 @@ public class Agenda {
                 agenda.remove(id-1);
                 borrado = true;
                 return borrado;
-            }else {
-
             }
         }
         return borrado;
+    }
+    public String cantidadContactos(){
+        Contactos contacto = new Contactos();
+        int cantidad = contacto.getCantidad();
+        String cantidadStr= Integer.toString(cantidad);
+        return cantidadStr;
     }
     public String listaCompleta(){
         StringBuilder lista = new StringBuilder();
@@ -42,7 +46,7 @@ public class Agenda {
             String nombre = contacto.getNombre();
             int telefono = contacto.getTelefono();
             
-            lista.append("\n id: ").append(id).append(" Nombre: ").append(nombre).append(" Telefono: ").append(telefono).append("\n");
+            lista.append("id: ").append(id).append(" Nombre: ").append(nombre).append(" Telefono: ").append(telefono).append("\n");
         }
         String listaCompleta = lista.toString();
         return listaCompleta;
