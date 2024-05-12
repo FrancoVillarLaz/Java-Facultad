@@ -39,6 +39,8 @@ public class AgendaGUI extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 String nombreInput = ingresarNombreInput.getText();
                 String telefonoStr = ingresarTelefonoInput.getText();
+                ingresarNombreInput.setText("");
+                ingresarTelefonoInput.setText("");
                 boolean esNumero = false;
                 for (int i = 0; i < telefonoStr.length(); i++) {
                     if (!Character.isDigit(telefonoStr.charAt(i))) {
@@ -48,6 +50,7 @@ public class AgendaGUI extends JFrame {
                 if (!nombreInput.isEmpty() && !telefonoStr.isEmpty()) {
                     if (!esNumero == true) {
                         agenda.agregarContacto(nombreInput, Integer.parseInt(telefonoStr));
+                        JOptionPane.showMessageDialog(null, "El contacto ha sido agregado con exito", "Agregado", JOptionPane.INFORMATION_MESSAGE);
                     } else {
                         JOptionPane.showMessageDialog(null, "Por favor llene con un numero telefonico valido.", "Error", JOptionPane.INFORMATION_MESSAGE);
                     }
@@ -59,13 +62,10 @@ public class AgendaGUI extends JFrame {
         buscarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Contactos buscado = new Contactos();
                 String busqueda = busquedaInput.getText();
-                buscado = agenda.buscarContacto(busqueda);
-                int id = buscado.getId();
-                String nombre = buscado.getNombre();
-                int telefono = buscado.getTelefono();
-                busquedaText.setText("id: " + id + " Nombre: " + nombre + " Telefono: " + telefono);
+                busquedaInput.setText("");
+                String buscado = agenda.buscarContacto(busqueda);
+                busquedaText.setText(buscado);
 
 
             }
@@ -84,6 +84,7 @@ public class AgendaGUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String borradoStr = borrarInput.getText();
+                borrarInput.setText("");
                 boolean borrado = agenda.borrarContacto(borradoStr);
                 if (borrado == true) {
                     JOptionPane.showMessageDialog(null, "El contacto ha sido borrado con exito", "Borrado", JOptionPane.INFORMATION_MESSAGE);

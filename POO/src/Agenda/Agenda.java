@@ -5,16 +5,25 @@ import java.util.ArrayList;
 public class Agenda {
     private static ArrayList<Contactos> agenda = new ArrayList();
 
+
     public void agregarContacto(String nombre,int telefono){
 
         agenda.add(new Contactos(nombre,telefono));
     }
 
-    public Contactos buscarContacto(String nombre){
+    public String buscarContacto(String nombre){
+        StringBuilder contactoBuscado = new StringBuilder();
+
         for (Contactos contacto : agenda) {
             if (nombre.equalsIgnoreCase(contacto.getNombre())){
-                Contactos contactoBuscado = new Contactos(contacto.getNombre(),contacto.getTelefono());
-                return contactoBuscado;
+                int id = contacto.getId();
+                String buscado = contacto.getNombre();
+                int telefono = contacto.getTelefono();
+                System.out.println(contacto.getCantidad());
+                contactoBuscado.append("id: ").append(id).append(" Nombre: ").append(buscado).append(" Telefono: ").append(telefono).append("\n");
+                String contactoBuscadoStr = contactoBuscado.toString();
+
+                return contactoBuscadoStr;
             }else {
             }
         }

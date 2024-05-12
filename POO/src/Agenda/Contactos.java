@@ -5,6 +5,8 @@ public class Contactos {
     private int telefono,id;
     private static int cantidad = 0;
 
+    public Contactos() {
+    }
     public Contactos(String nombre, int telefono) {
         this.nombre = nombre;
         this.telefono = telefono;
@@ -12,8 +14,7 @@ public class Contactos {
         this.id=cantidad;
         System.out.println(getId());
     }
-    public Contactos() {
-    }
+
     public String getNombre() {
         return nombre;
     }
