@@ -16,12 +16,19 @@ public class Register {
     public boolean registrarUsuario(){
         Register usuario = new Register(user,pass,correo);
         Usuario consulta = new Usuario();
+        Sesion sesion = new Sesion();
+
+    if (sesion.isValidPassword(usuario.getPass())){
+
         boolean registrado=consulta.insert(usuario);
         if (registrado== true){
             System.out.println("registrado papá");
         }else {
             System.out.println("no se registro");
         }
+
+    }
+    boolean registrado = false;
         return registrado;
     }
     public void setUser(String user) {

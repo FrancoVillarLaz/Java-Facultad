@@ -31,6 +31,8 @@ public class Login {
         }
     }
 
+
+
     public void setUser(String user) {
         this.user = user;
     }
