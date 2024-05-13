@@ -19,7 +19,7 @@ public class Register {
         Sesion sesion = new Sesion();
 
     if (sesion.isValidPassword(usuario.getPass())){
-
+        sesion.passwordHash(usuario.getPass());
         boolean registrado=consulta.insert(usuario);
         if (registrado== true){
             System.out.println("registrado papá");

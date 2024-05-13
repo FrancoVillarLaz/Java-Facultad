@@ -23,6 +23,7 @@ public class Login {
     public boolean logear(){
         Login usuario = new Login(user,pass,correo);
         Usuario consulta = new Usuario();
+        Sesion sesion = new Sesion();
         boolean logeado=consulta.selectLogin(usuario);
         if (logeado== true){
             return logeado;
